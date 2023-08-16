@@ -5,8 +5,15 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { TodosModule } from './todos/todos.module';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost/primer_proyecto'), TodosModule],
+  imports: [
+    MongooseModule.forRoot('mongodb://localhost/primer_proyecto', {
+      // useNewUrlParser: true,
+      // useUnifiedTopology: true,
+    }),
+    TodosModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
+  
 })
-export class AppModule {}
+export class AppModule { }
